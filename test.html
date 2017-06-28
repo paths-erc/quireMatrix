@@ -25,7 +25,6 @@
   <body>
     <div class="container">
       <h1>quireMatrix demo page</h1>
-
       <hr>
 
       <p class="lead">An easy to use, dependency-less software to visualise in
@@ -33,7 +32,6 @@
       <p><strong>quireMatrix</strong> uses html <code>canvas</code> element to
         render the layout. Your browser <strong>must</strong> thus support <code>canvas</code>
       element. <a href="http://caniuse.com/#feat=canvas" target="_blank">Check browser's compatibilty</a>.</p>
-
       <hr>
 
       <div class="row">
@@ -49,13 +47,10 @@
         </div>
       </div>
 
-
       <div class="form-group">
         <canvas id="canvas" width="400" height="300"></canvas>
       </div>
     </div>
-
-
 
     <script type="text/javascript">
       window.Matrix || document.write('<script type="text\/javascript" src="quireMatrix.js"><\/script>');
@@ -63,8 +58,6 @@
     <script type="text/javascript">
       var m = new Matrix('canvas');
       m.observeInput('input', 'second_half');
-    </script>
-
     </script>
   </body>
 </html>
