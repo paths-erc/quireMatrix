@@ -2,31 +2,47 @@
 An easy to use, dependency-less software to visualize in the browser the layout
 of quires, using a very intuitive notation system.
 
+## Demo
+A working demo is shipped within the project files (file demo.html). Download
+and open in a web browser to test the software.
+
+If you don't want to run your own copy a freely accessible demo is available
+on our website at http://paths.uniroma1.it/tools/quireMatrix/index.html
+
+## Browser compatibility
+Your favorite browser is the only software you need to run quireMatrix, which uses
+the [`canvas` element](https://en.wikipedia.org/wiki/Canvas_element).
+
+All modern browsers have a good support for the `canvas` element, but if you
+want to make it will work on yours, [check here](http://caniuse.com/#feat=canvas).
+
 ## Usage
 The software takes a formatted string describing the first (left) half of a
 quire and uses it to reconstruct the second half. It then builds the matrix view.
 
-1. Require the library
+1. Download from [Github](https://github.com/paths-erc/quireMatrix/archive/master.zip)
+
+2. Require the library
 
         <script type="text/javascript" src="quireMatrix.js"></script>
 
-2. Create a new instance
+3. Create a new instance
 
         <script type="text/javascript">
           var m = new Matrix('canvas');
 
 where `canvas` is the `id` attribute of the canvas element
 
-3. Add a listener to an input element to get data from user
+4. Add a listener to an input element to get data from user
 
         m.observeInput('input', 'second_half');
 
 where `input` id the `id` attribute of the input element (it can be a `textarea`,
 `input`, etc.).
 
-4. Done!
+5. Done!
 
-## Full example
+### Full example
 A full working example can be found in the test.html file. A minimal,
 working example of both the HTML and JS code needed to get a working environment:
 
