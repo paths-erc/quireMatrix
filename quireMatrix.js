@@ -1,10 +1,10 @@
 /**
  * [description]
- * @param  {string} canvasId Id of canvas element where to draw the matrix
+ * @param  {string|object} canvasId Id of canvas element where to draw the matrix or jQuery object of the element
  */
 var Matrix = function(canvasId){
 
-  var canvas = document.getElementById(canvasId),
+  var canvas = (typeof canvasId === 'string' ? document.getElementById(canvasId) : canvasId[0]),
       ctx = canvas.getContext("2d"),
       height = canvas.height,
       width = canvas.width,
@@ -258,9 +258,11 @@ var Matrix = function(canvasId){
   /**
    * Parses a string and outputs martix on canvas and second-half result in second half container
    * @param  {string} val String to be parsed
+   * @param  {string|object} secondHalfId  Id of element or jQuery object where to put the seconf half reconstruction
    */
-  this.parseString = function(val){
+  this.parseString = function(val, secondHalfId){
     var $this = this,
+        secondHalf = secondHalfId ? (typeof secondHalfId === 'string' ? document.getElementById(secondHalfId) : secondHalfId[0]) : false,
         tot = 0,
         a = [];
 
@@ -292,10 +294,19 @@ var Matrix = function(canvasId){
       }
     });
 
-    return {
+    var res = {
       text: val_arr_rev.join('/'),
       tot: tot*2
     };
+
+    if (secondHalf) {
+      secondHalf.innerHTML = '';
+      secondHalf.innerHTML = '<code><strong>' + res.text + '</strong></code><br>Total: <strong>' + res.tot + '</strong> pages';
+    } else {
+      console.log(res);
+    }
+
+    return res;
   };
 
   /**
@@ -305,18 +316,13 @@ var Matrix = function(canvasId){
    * @param  {string} secondHalfId  Id of element where to put the seconf half reconstruction
    */
   this.observeInput = function(inputId, secondHalfId){
-    var input = document.getElementById(inputId),
-        secondHalf = secondHalfId ? document.getElementById(secondHalfId) : false,
+    var input = ( typeof inputId === 'string' ? document.getElementById(inputId) : inputId[0]),
         $this = this;
 
-    addEventHandler(input, 'input', function(){
-      var res = $this.parseString(input.value);
+    $this.parseString(input.value, secondHalfId);
 
-      if (secondHalf) {
-        secondHalf.innerHTML = '<code><strong>' + res.text + '</strong></code><br>Total: <strong>' + res.tot + '</strong> pages';
-      } else {
-        console.log(res);
-      }
+    addEventHandler(input, 'input', function(){
+      $this.parseString(input.value, secondHalfId);
     });
   };
 

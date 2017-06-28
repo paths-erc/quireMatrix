@@ -36,12 +36,21 @@ working example of both the HTML and JS code needed to get a working environment
 
     <!-- Include script -->
     <script type="text/javascript" src="quireMatrix.js"></script>');
-    
+
     <!-- Run script -->
     <script type="text/javascript" ></script>');
       var m = new Matrix('canvas');
       m.observeInput('input', 'second_half');
     </script>
+
+## API
+**quireMatrix** has only three public methods
+- Matrix.`clear`: clears the canvas
+- Matrix.`parseString`(val, secondHalfId): parses the notated string passed in `val`
+and puts the reconstructed (right) half in right half element passed as id (string)
+or as jQuery element in `secondHalfId`.
+- Matrix.`observeInput`(inputId, secondHalfId): sets an observer on `inputId` element
+passed as id (string) or as jQuery element.
 
 ## Notation system
 **quireMatrix** uses a very simple notation system to describe
