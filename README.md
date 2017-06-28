@@ -86,12 +86,12 @@ This is easily explained by considering that the overall descriptions follows a
 clockwise direction.
 
 Verbose description:
-1. binion
-2. binion with right page lost
-3. singleton on left side
-4. binion
-5. binion
-6. stub on left side with singleton on right side
+1. `1x` - `1x` binion
+2. `1*` - `0x` binion with right page lost
+3. `1` - `1` singleton on left side
+4. `1x` - `1x` binion
+5. `1x` - `1x` binion
+6. `0+` - `1+` stub on left side with singleton on right side
 
 ## License
 MIT License. See LICENSE file
