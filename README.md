@@ -7,15 +7,20 @@ The software takes a formatted string describing the first (left) half of a
 quire and uses it to reconstruct the second half. It then builds the matrix view.
 
 1. Require the library
+
         <script type="text/javascript" src="quireMatrix.js"></script>
 
 2. Create a new instance
+
         <script type="text/javascript">
           var m = new Matrix('canvas');
+
 where `canvas` is the `id` attribute of the canvas element
 
 3. Add a listener to an input element to get data from user
+
         m.observeInput('input', 'second_half');
+
 where `input` id the `id` attribute of the input element (it can be a `textarea`,
 `input`, etc.).
 
