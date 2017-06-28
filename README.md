@@ -68,6 +68,7 @@ by one of the following:
 - `1` (infers on right `0`) left: singleton; right: nothing
 - `0*` (infers on right `1*`) left: lost singleton (dashed line); right: singleton
 - `1*` (infers on right `0*`) left: singleton; right: lost singleton (dashed line)
+- `1x*` (infers on right `1x*`) lost union (dashed line)
 - `0+` (infers on right `1+`) left: stub; right: singleton
 - `1+` (infers on right `0+`) left: singleton; right: stub
 - `1x` (infers on right `1x`) union, ie. left: singleton; right: singleton
@@ -79,19 +80,30 @@ by one of the following:
 - `4*` (infers on right `0`) two lost union on the left side (dashed); right: nothing
 
 ### Notation example
-
-Left (user input): `1x/1*/1/1x/1x/0+` infers on right side: `1+/1x/1*/1/1x/1x`.
+The notation syntax describes the left half of the quire and contains information
+useful to reconstruct the second part of it. Its if formed by several elements
+divided by **forward slashes** (**/**). Each element describes a leaf/layer and is
+formed by a number (1, 2, 3 or 4) that indicates the leaf on the left side followed
+by one or many indicators, that tell more about its conservation, consistency
+and correspondence to the right side. The available indicators are:
+- `x`, to be used only with number `1`, indicating perfect correspondence on both
+sides of the quire
+- `*` indicates that the leaf is not preserved, but that we have decisive clues
+that it existed
+- `+`, indicates that on the other side of the leaf only a stub is visible
+Left (user input): `1x/1*/1/1x/1x/0+/1x*` infers on right side: `1x*/1+/1x/1*/1/1x/1x`.
 The inferred right side will have a reversed order if compared to the left half.
 This is easily explained by considering that the overall descriptions follows a
-clockwise direction.
+clockwise direction or reading order.
 
 Verbose description:
-1. `1x` - `1x` binion
-2. `1*` - `0x` binion with right page lost
-3. `1` - `1` singleton on left side
-4. `1x` - `1x` binion
-5. `1x` - `1x` binion
-6. `0+` - `1+` stub on left side with singleton on right side
+- `1x` - `1x` binion
+- `1*` - `0x` binion with right page lost
+- `1` - `1` singleton on left side
+- `1x` - `1x` binion
+- `1x` - `1x` binion
+- `0+` - `1+` stub on left side with singleton on right side
+- `1x*` - `1x*` lost binion
 
 ## License
 MIT License. See LICENSE file
