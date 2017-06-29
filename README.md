@@ -53,7 +53,7 @@ working example of both the HTML and JS code needed to get a working environment
     <div id="second_half"></div>
 
     <!-- Canvas element -->
-    <canvas id="canvas" width="400" height="300"></canvas>
+    <canvas id="canvas" width="400" height="50"></canvas>
 
     <!-- Include script -->
     <script type="text/javascript" src="quireMatrix.js"></script>');

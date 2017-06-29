@@ -4,6 +4,8 @@
  */
 var Matrix = function(canvasId){
 
+  var version = "1.0.0";
+
   var canvas = (typeof canvasId === 'string' ? document.getElementById(canvasId) : canvasId[0]),
       ctx = canvas.getContext("2d"),
       height = canvas.height,
@@ -274,10 +276,17 @@ var Matrix = function(canvasId){
 
     var val_arr = val.replace(/\/$/, '').split('/');
 
+    if (val_arr.length > 3) {
+      height = 50 + (val_arr.length*step);
+      canvas.setAttribute('height', height);
+    }
+
     // Draw on canvas
     val_arr.forEach(function(e){
       if (e){
-        tot += parseInt(e);
+        if (e !== '1x*') {
+          tot += parseInt(e.replace('*', '').replace('x', ''));
+        }
         $this.addRow(e);
       }
     });
@@ -288,7 +297,7 @@ var Matrix = function(canvasId){
       if (typeof values_map[e] !== 'undefined'){
         a[i] = values_map[e];
       }
-      if (e){
+      if (e && a[i] !== '1x*'){
         var nr = a[i] ? parseInt(a[i].replace('*', '').replace('x', '')) : 0;
         tot += (isNaN(nr) ? 0 : nr);
       }
