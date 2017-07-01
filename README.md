@@ -61,7 +61,7 @@ working example of both the HTML and JS code needed to get a working environment
 <script type="text/javascript" src="quireMatrix.js"></script>
 
 <!-- Run script -->
-<script type="text/javascript" ></script>');
+<script type="text/javascript" ></script>
   var m = new Matrix('canvas');
   m.observeInput('input', 'second_half');
 </script>
