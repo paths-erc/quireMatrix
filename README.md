@@ -23,20 +23,21 @@ quire and uses it to reconstruct the second half. It then builds the matrix view
 1. Download from [Github](https://github.com/paths-erc/quireMatrix/archive/master.zip)
 
 2. Require the library
-
-        <script type="text/javascript" src="quireMatrix.js"></script>
-
+```html
+<script type="text/javascript" src="quireMatrix.js"></script>
+```
 3. Create a new instance
-
-        <script type="text/javascript">
-          var m = new Matrix('canvas');
+```html
+<script type="text/javascript">
+  var m = new Matrix('canvas');
+```
 
 where `canvas` is the `id` attribute of the canvas element
 
 4. Add a listener to an input element to get data from user
-
-        m.observeInput('input', 'second_half');
-
+```javascript
+  m.observeInput('input', 'second_half');
+```
 where `input` id the `id` attribute of the input element (it can be a `textarea`,
 `input`, etc.).
 
@@ -46,24 +47,25 @@ where `input` id the `id` attribute of the input element (it can be a `textarea`
 A full working example can be found in the test.html file. A minimal,
 working example of both the HTML and JS code needed to get a working environment:
 
-    <!-- Input element -->
-    <input type="text" id="input">
+```html
+<!-- Input element -->
+<input type="text" id="input">
 
-    <!-- container of reconstructed second-half data -->
-    <div id="second_half"></div>
+<!-- container of reconstructed second-half data -->
+<div id="second_half"></div>
 
-    <!-- Canvas element -->
-    <canvas id="canvas" width="400" height="50"></canvas>
+<!-- Canvas element -->
+<canvas id="canvas" width="400" height="50"></canvas>
 
-    <!-- Include script -->
-    <script type="text/javascript" src="quireMatrix.js"></script>');
+<!-- Include script -->
+<script type="text/javascript" src="quireMatrix.js"></script>
 
-    <!-- Run script -->
-    <script type="text/javascript" ></script>');
-      var m = new Matrix('canvas');
-      m.observeInput('input', 'second_half');
-    </script>
-
+<!-- Run script -->
+<script type="text/javascript" ></script>');
+  var m = new Matrix('canvas');
+  m.observeInput('input', 'second_half');
+</script>
+```
 ## API
 **quireMatrix** has only three public methods
 - Matrix.`clear`: clears the canvas
