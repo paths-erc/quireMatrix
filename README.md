@@ -31,10 +31,16 @@ quire and uses it to reconstruct the second half. It then builds the matrix view
 <script type="text/javascript">
   var m = new Matrix('canvas');
 ```
-
 where `canvas` is the `id` attribute of the canvas element
 
-4. Add a listener to an input element to get data from user
+4. Parse a string
+```javascript
+  m.parseString('string', 'second_half');
+```
+where `string` id the string to parse and second_half is the id of the element
+that will contain the second part of the quire
+
+5. Or add a listener to an input element to get data from user
 ```javascript
   m.observeInput('input', 'second_half');
 ```
