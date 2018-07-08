@@ -3,11 +3,11 @@ An easy to use, dependency-less software to visualize in the browser the layout
 of quires, using a very intuitive notation system.
 
 ## Demo
-A working demo is shipped within the project files (file demo.html). Download
+A working demo is shipped within the project files (file docs/index.html). Download
 and open in a web browser to test the software.
 
 If you don't want to run your own copy a freely accessible demo is available
-on our website at http://paths.uniroma1.it/tools/quireMatrix/index.html
+on our website at https://paths-erc.github.io/quireMatrix/
 
 ## Browser compatibility
 Your favorite browser is the only software you need to run quireMatrix, which uses
