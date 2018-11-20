@@ -6,7 +6,7 @@
    */
   var Matrix = function(canvasId){
 
-    var version = "1.1.0";
+    var version = "1.2.0";
 
     var canvas = (typeof canvasId === 'string' ? document.getElementById(canvasId) : canvasId[0]),
         ctx = canvas.getContext("2d"),
@@ -33,7 +33,10 @@
           '3*': '0',
 
           '4': '0',
-          '4*': '0'
+          '4*': '0',
+
+          '0+*': '1+*',
+          '1+*': '0+*',
         };
 
     ctx.lineWidth = 1.5;
@@ -72,12 +75,14 @@
      *  left: stub
      *  right: single
      */
-    function addZeroPlus(){
+    function addZeroPlus(dash){
       ctx.beginPath();
+      if ( dash ) ctx.setLineDash([5]);
       ctx.moveTo(width, height-(rows*step));
       ctx.lineTo((width/2), height-((rows-1)*step));
       ctx.lineTo((width/2)-(width/10), height-(rows*step)+step*0.75);
       ctx.stroke();
+      if ( dash ) ctx.setLineDash([]);
     }
 
     /**
@@ -104,11 +109,13 @@
      *  left: single
      *  right: stub
      */
-    function addOnePlus(){
+    function addOnePlus(dash){
       ctx.beginPath();
+      if ( dash ) ctx.setLineDash([5]);
       single();
       ctx.lineTo((width/2)+(width/10), height-(rows*step)+step*0.75);
       ctx.stroke();
+      if ( dash ) ctx.setLineDash([]);
     }
 
     /**
@@ -247,6 +254,8 @@
       else if (type === '3*')   addThree(true);
       else if (type === '4')    addFour();
       else if (type === '4*')   addFour(true);
+      else if (type === '0+*')  addZeroPlus(true);
+      else if (type === '1+*')  addOnePlus(true);
       rows++;
     };
 
@@ -286,7 +295,7 @@
       // Draw on canvas
       val_arr.forEach(function(e){
         if (e){
-          if (e !== '1x*') {
+          if (e !== '1x*' && e !== '1+*') {
             tot += parseInt(e.replace('*', '').replace('x', ''));
           }
           $this.addRow(e);

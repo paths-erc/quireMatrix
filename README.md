@@ -95,6 +95,8 @@ by one of the following:
 - `1x*` (infers on right `1x*`) lost union (dashed line)
 - `0+` (infers on right `1+`) left: stub; right: singleton
 - `1+` (infers on right `0+`) left: singleton; right: stub
+- `0+*` (infers on right `1+*`) left: lost stub; right: lost singleton
+- `1+*` (infers on right `0+*`) left: lost singleton; right: lost stub
 - `1x` (infers on right `1x`) union, ie. left: singleton; right: singleton
 - `2` (infers on right `0`) union on the left side; right: nothing
 - `2*` (infers on right `0`) lost union on the left side (dashed); right: nothing
@@ -121,13 +123,12 @@ This is easily explained by considering that the overall descriptions follows a
 clockwise direction or reading order.
 
 Verbose description:
-- `1x` - `1x` binion
-- `1*` - `0x` binion with right page lost
 - `1` - `1` singleton on left side
 - `1x` - `1x` binion
-- `1x` - `1x` binion
-- `0+` - `1+` stub on left side with singleton on right side
+- `1*` - `0*` binion with right page lost
+- `1+` - `0+` singleton on left side with stub on right side
 - `1x*` - `1x*` lost binion
+- `1+*` - `0+*` lost singleton with stub
 
 ## License
 MIT License. See LICENSE file
