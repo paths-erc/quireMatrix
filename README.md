@@ -26,19 +26,33 @@ quire and uses it to reconstruct the second half. It then builds the matrix view
 ```html
 <script type="text/javascript" src="quireMatrix.js"></script>
 ```
+  or use a CDN version
+
+  ```html
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/paths-erc/quireMatrix/quireMatrix.min.js"></script>
+```
+
 3. Create a new instance
-```html
-<script type="text/javascript">
+```js
   var m = new Matrix('canvas');
 ```
-where `canvas` is the `id` attribute of the canvas element
+where `canvas` is the `id` attribute of the canvas element, eg.
+
+```html
+<canvas id="canvas" width="400" height="50"></canvas>
+```
 
 4. Parse a string
 ```javascript
   m.parseString('string', 'second_half');
 ```
-where `string` id the string to parse and second_half is the id of the element
-that will contain the second part of the quire
+where `string` id the string to parse and `second_half` is the id of the element
+that will contain the second part of the quire, eg:
+
+```html
+<input type="text" id="string">
+<span id="second_half"></span>
+```
 
 5. Or add a listener to an input element to get data from user
 ```javascript
@@ -50,7 +64,7 @@ where `input` id the `id` attribute of the input element (it can be a `textarea`
 5. Done!
 
 ### Full example
-A full working example can be found in the test.html file. A minimal,
+A full working example can be found in the [demo/index.html file](https://github.com/paths-erc/quireMatrix/blob/master/docs/index.html). A minimal,
 working example of both the HTML and JS code needed to get a working environment:
 
 ```html
@@ -72,6 +86,9 @@ working example of both the HTML and JS code needed to get a working environment
   m.observeInput('input', 'second_half');
 </script>
 ```
+
+Check also our working demo on  [GitHub Pages](https://paths-erc.github.io/quireMatrix/)
+
 ## API
 **quireMatrix** has only three public methods
 - Matrix.`clear`: clears the canvas
