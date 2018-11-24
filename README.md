@@ -147,8 +147,13 @@ Verbose description:
 - `1x*` - `1x*` lost binion
 - `1+*` - `0+*` lost singleton with stub
 
-## License
-MIT License. See LICENSE file
+# How to cite
+This software is archived in Zenodo. Please cite it by referring the DOI: 10.5281/zenodo.1453362
 
-## Copyright
-Copyright (c) 2017 paths-erc
+[![DOI](https://zenodo.org/badge/95661162.svg)](https://zenodo.org/badge/latestdoi/95661162)
+
+# License
+MIT License. See [LICENSE](LICENSE) file
+
+# Copyright
+Copyright (c) 2017 Julian Bogdani, PAThs
