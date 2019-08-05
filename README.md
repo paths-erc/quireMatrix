@@ -148,9 +148,10 @@ Verbose description:
 - `1+*` - `0+*` lost singleton with stub
 
 # How to cite
-This software is archived in Zenodo. Please cite it by referring the DOI: 10.5281/zenodo.1453362
+This software is archived in Zenodo. Please cite it by referring the DOI: [10.5281/zenodo.1453362](https://doi.org/10.5281/zenodo.1453362)
 
 [![DOI](https://zenodo.org/badge/95661162.svg)](https://zenodo.org/badge/latestdoi/95661162)
+
 
 # License
 MIT License. See [LICENSE](LICENSE) file
